@@ -1,0 +1,20 @@
+version: 2.1
+
+jobs:
+  arduino-ci-test:
+    docker:
+      - image: circleci/ruby:2.6
+    steps:
+      - checkout
+      - run:
+          name: Install and test
+          command: |
+            bundle install
+            ./scripts/install_libraries.sh  
+            bundle exec arduino_ci_remote.rb
+
+# We use workflows to orchestrate the jobs that we declared above.
+workflows:
+  arduino-ci-workflow:     # The name of our workflow is "build_and_test"
+    jobs:                  # The list of jobs we run as part of this workflow.
+      - arduino-ci-test    # Then run test
