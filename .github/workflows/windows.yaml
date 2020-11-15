@@ -34,14 +34,12 @@ jobs:
           ruby-version: 2.6
 
       # Install and run Arduino CI tests for Network
-      - name: Build and Execute
-        run: |
-          g++ -v
-          bundle install
-          bundle exec rubocop --version
-          bundle exec rubocop -D .
-          bundle exec rspec --backtrace
-          cd SampleProjects/NetworkLib
-          ./scripts/install.sh
-          bundle install
-          bundle exec arduino_ci.rb
+      - run: g++ -v
+      - run: bundle install
+      - run: bundle exec rubocop --version
+      - run: bundle exec rubocop -D .
+      - run: bundle exec rspec --backtrace
+      - run: cd SampleProjects/NetworkLib
+      - run: ./scripts/install.sh
+      - run: bundle install
+      - run: bundle exec arduino_ci.rb
