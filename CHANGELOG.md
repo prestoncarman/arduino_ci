@@ -7,9 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 ### Added
-- Add `__AVR__` to defines when compiling
 - `arduino_ci_remote.rb` CLI switch `--skip-examples-compilation`
-- Add support for `diditalPinToPort()`, `digitalPinToBitMask()`, and `portOutputRegister()`
+- Add support for `diditalPinToPort()`, `digitalPinToBitMask()`, `portOutputRegister()`, and `portInputRegister()`
 - `CppLibrary.header_files` to find header files
 - `LibraryProperties` to read metadata from Arduino libraries
 - `CppLibrary.library_properties_path`, `CppLibrary.library_properties?`, `CppLibrary.library_properties` to expose library properties of a Cpp library
@@ -19,7 +18,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Support for mock EEPROM (but only if board supports it)
 - Add stubs for `Client.h`, `IPAddress.h`, `Printable.h`, `Server.h`, and `Udp.h`
 - Add documentation on how to use Arduino CI with GitHub Actions
-- Allow tests to run on GitHub without external set up with GitHub Actions (for Windows, Ubuntu, and MacOS)
+- Allow tests to run on GitHub without external set up with GitHub Actions (for Windows and Ubuntu)
 
 ### Changed
 - Move repository from https://github.com/ianfixes/arduino_ci to https://github.com/Arduino-CI/arduino_ci
@@ -33,6 +32,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Don't define `ostream& operator<<(nullptr_t)` if already defined by Apple
 - `CppLibrary.in_tests_dir?` no longer produces an error if there is no tests directory
 - The definition of the `_SFR_IO8` macro no longer produces errors about rvalues
+- Typo in `cpp_library.rb`, misspelling of `aux_libraries`
 
 ### Deprecated
 - `arduino_ci_remote.rb` CLI switch `--skip-compilation`

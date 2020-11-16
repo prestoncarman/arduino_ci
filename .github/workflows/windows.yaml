@@ -36,7 +36,8 @@ jobs:
       # Install and run Arduino CI tests for Network
       - run: bundle install
       - run: g++ -v
-      - run: |
+      - name: Build and Execute
+        run: |
           cd SampleProjects/NetworkLib
           bash -x ./scripts/install.sh
           bundle install
