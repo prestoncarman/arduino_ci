@@ -42,12 +42,10 @@ jobs:
       - uses: actions/checkout@v2
         with:
           repository: 'Arduino-CI/Ethernet'
-          path: 'Library/'
+          path: 'C:\Users\runneradmin\Documents\Arduino/libraries/'
 
       - run: |
           cd SampleProjects/NetworkLib
-          echo "Before ./scripts/install.sh"
-          bash -x ./scripts/install.sh
           echo "Before bundle install"
           bundle install
           echo "Before bundle exec arduino_ci.rb"
