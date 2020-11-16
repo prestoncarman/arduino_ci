@@ -39,7 +39,8 @@ jobs:
       - run: bundle exec rubocop --version
       - run: bundle exec rubocop -D .
       - run: bundle exec rspec --backtrace
-      - run: cd SampleProjects/NetworkLib
-      - run: ./scripts/install.sh
-      - run: bundle install
-      - run: bundle exec arduino_ci.rb
+      - run: |
+          cd SampleProjects/NetworkLib
+          ./scripts/install.sh
+          bundle install
+          bundle exec arduino_ci.rb
