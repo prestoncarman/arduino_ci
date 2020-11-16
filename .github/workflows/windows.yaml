@@ -21,7 +21,6 @@ jobs:
           bundle exec rubocop --version
           bundle exec rubocop -D .
           bundle exec rspec --backtrace
-          # echo "After backtrace"
           cd SampleProjects/TestSomething
           bundle install
           bundle exec arduino_ci.rb
@@ -37,17 +36,8 @@ jobs:
       # Install and run Arduino CI tests for Network
       - run: bundle install
       - run: g++ -v
-      # - run: bundle exec arduino_library_location.rb
-
-      # - uses: actions/checkout@v2
-      #   with:
-      #     repository: 'Arduino-CI/Ethernet'
-      #     path: 'Library/'
       - run: |
           cd SampleProjects/NetworkLib
-          # echo "Before ./scripts/install.sh"
           bash -x ./scripts/install.sh
-          # echo "Before bundle install"
           bundle install
-          # echo "Before bundle exec arduino_ci.rb"
           bundle exec arduino_ci.rb
