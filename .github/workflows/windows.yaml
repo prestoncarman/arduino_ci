@@ -39,7 +39,7 @@ jobs:
           bundle install
           bundle exec arduino_ci.rb
 
-  Network: 
+  NetworkLib: 
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v2
@@ -48,10 +48,10 @@ jobs:
           ruby-version: 2.6
 
       # Install and run Arduino CI tests for Network
-      - run: bundle install
-      - run: g++ -v
       - name: Build and Execute
         run: |
+          g++ -v
+          bundle install
           cd SampleProjects/NetworkLib
           bash -x ./scripts/install.sh
           bundle install

@@ -39,7 +39,7 @@ jobs:
           bundle install
           bundle exec arduino_ci.rb
 
-  Network: 
+  NetworkLib: 
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -47,7 +47,7 @@ jobs:
         with: 
           ruby-version: 2.6
 
-      # Install and run Arduino CI tests for Network
+      # Install and run Arduino CI tests for NetworkLib
       - name: Build and Execute
         run: |
           g++ -v
