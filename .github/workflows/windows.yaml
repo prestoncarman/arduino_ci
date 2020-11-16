@@ -35,7 +35,7 @@ jobs:
           ruby-version: 2.6
 
       - run: g++ -v
-      - run: echo $(bundle exec arduino_library_location.rb)
+      - run: bundle exec arduino_library_location.rb
 
       - uses: actions/checkout@v2
         with:
