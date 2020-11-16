@@ -40,7 +40,7 @@ jobs:
       - run: |
           cd SampleProjects/NetworkLib
           echo "Before ./scripts/install.sh"
-          ./scripts/install.sh
+          bash -x ./scripts/install.sh
           echo "Before bundle install"
           bundle install
           echo "Before bundle exec arduino_ci.rb"
