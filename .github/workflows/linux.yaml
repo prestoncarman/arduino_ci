@@ -5,6 +5,23 @@ name: linux
 on: [push, pull_request]
 
 jobs:
+  rubocop: 
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: ruby/setup-ruby@v1
+        with: 
+          ruby-version: 2.6
+
+      # Install and run Arduino CI tests for rubocop
+      - name: Build and Execute
+        run: |
+          g++ -v
+          bundle install
+          bundle exec rubocop --version
+          bundle exec rubocop -D .
+          bundle exec rspec --backtrace
+
   TestSomething: 
     runs-on: ubuntu-latest
     steps:
@@ -18,9 +35,6 @@ jobs:
         run: |
           g++ -v
           bundle install
-          bundle exec rubocop --version
-          bundle exec rubocop -D .
-          bundle exec rspec --backtrace
           cd SampleProjects/TestSomething
           bundle install
           bundle exec arduino_ci.rb
@@ -38,9 +52,6 @@ jobs:
         run: |
           g++ -v
           bundle install
-          bundle exec rubocop --version
-          bundle exec rubocop -D .
-          bundle exec rspec --backtrace
           cd SampleProjects/NetworkLib
           ./scripts/install.sh
           bundle install
