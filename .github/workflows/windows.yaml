@@ -34,6 +34,8 @@ jobs:
         with: 
           ruby-version: 2.6
 
+      # Install and run Arduino CI tests for Network
+      - run: bundle install
       - run: g++ -v
       - run: bundle exec arduino_library_location.rb
 
@@ -42,8 +44,6 @@ jobs:
           repository: 'Arduino-CI/Ethernet'
           path: 'Library/'
 
-      # Install and run Arduino CI tests for Network
-      - run: bundle install
       - run: |
           cd SampleProjects/NetworkLib
           echo "Before ./scripts/install.sh"
