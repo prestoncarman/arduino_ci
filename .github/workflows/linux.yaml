@@ -17,10 +17,10 @@ jobs:
       - name: Build and Execute
         run: |
           g++ -v
-          bundle install
-          bundle exec rubocop --version
-          bundle exec rubocop -D .
-          bundle exec rspec --backtrace
+          time bundle install
+          time bundle exec rubocop --version
+          time bundle exec rubocop -D .
+          time bundle exec rspec --backtrace
 
   TestSomething: 
     runs-on: ubuntu-latest
@@ -34,10 +34,10 @@ jobs:
       - name: Build and Execute
         run: |
           g++ -v
-          bundle install
+          time bundle install
           cd SampleProjects/TestSomething
-          bundle install
-          bundle exec arduino_ci.rb
+          time bundle install
+          time bundle exec arduino_ci.rb
 
   NetworkLib: 
     runs-on: ubuntu-latest
@@ -51,8 +51,8 @@ jobs:
       - name: Build and Execute
         run: |
           g++ -v
-          bundle install
+          time bundle install
           cd SampleProjects/NetworkLib
           ./scripts/install.sh
-          bundle install
-          bundle exec arduino_ci.rb
+          time bundle install
+          time bundle exec arduino_ci.rb
