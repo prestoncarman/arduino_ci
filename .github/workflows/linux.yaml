@@ -37,7 +37,8 @@ jobs:
           time bundle install
           cd SampleProjects/TestSomething
           time bundle install
-          time bundle exec arduino_ci.rb
+          time bundle exec arduino_ci.rb --skip-examples-compilation
+          time bundle exec arduino_ci.rb --skip-unittests
 
   NetworkLib: 
     runs-on: ubuntu-latest
